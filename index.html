@@ -6,6 +6,54 @@ Karna Manideep Kaushal -->
     <head>
         <title>Welcome to AMRV Technology</title>
         <link rel="stylesheet" href="css/indexcss.css">
+
+        <!----------------------------------------- Javascript -------------------------------------------------->
+        <script type="text/javascript">
+            function fn1()
+            {
+                var name=document.getElementById("box1").value;
+                var email=document.getElementById("box2").value;
+                var phone=document.getElementById("box3").value;
+                var course=document.getElementById("box4").value;
+                var text=document.getElementById("box5").value;
+                var regx1=/^([a-z A-z 0-9 \. -]+)@([a-z A-z 0-9 -]+).([a-z A-Z]{2,8})$/;
+                var regx2=/^[6789]\d{9}$/;
+                if(name=="")
+                {
+                    alert("Name cannot be empty!");
+                }
+                else if(email=="")
+                {
+                    alert("Email cannot be empty!");
+                }
+                else if(phone=="")
+                {
+                    alert("Phone cannot be empty!");
+                }
+                else if(course=="")
+                {
+                    alert("Course must be selected");
+                }
+                else if(!(regx1.test(email)))
+                {
+                    alert("Enter a proper email id");
+                }
+                else if(!(regx2.test(phone)))
+                {
+                    alert("Enter a proper phone number");
+                }
+                else
+                {
+                    document.getElementById("box1").value="";
+                    document.getElementById("box2").value="";
+                    document.getElementById("box3").value="";
+                    //document.getElementById("box4").value="";
+                    document.getElementById("box5").value="";
+                    alert("Thanks "+name+". We will respond about your query on "+course+" within 2 hours");
+                }
+            }
+        </script>
+        <!------------------------------------------------------------------------------------------------------>
     </head>
 
     <body>
@@ -67,20 +115,20 @@ Karna Manideep Kaushal -->
 
                 <div id="body2">
                     <p>Enroll Form</p>
-                    <input type="text" placeholder="Enter Name"><br>
-                    <input type="text" placeholder="Enter Email"><br>
-                    <input type="text" placeholder="Enter Phone"><br>
-                    <select>
+                    <input id="box1" type="text" placeholder="Enter Name" required><br>
+                    <input id="box2" type="text" placeholder="Enter Email" required><br>
+                    <input id="box3" type="text" placeholder="Enter Phone" required><br>
+                    <select id="box4">
                         <option value="">---Select Course---</option>
-                        <option>Web Desiging</option>
-					    <option>C/C++</option>
-					    <option>PHP</option>
-					    <option>HTML</option>
-					    <option>CSS</option>
-                        <option>Asp.net</option>
+                        <option value="Web Designing">Web Desiging</option>
+					    <option value="C/C++">C/C++</option>
+					    <option value="PHP">PHP</option>
+					    <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="ASP">Asp.net</option>
                     </select><br><br>
-                    <textarea rows="3" placeholder="Type your Message"></textarea><br><br>
-                    <input style="text-align: center;" type="submit" value="Submit">
+                    <textarea id="box5" rows="3" placeholder="Type your Message"></textarea><br><br>
+                    <input onclick="fn1()" style="text-align: center;" type="submit" value="Submit">
                     <!-- <input type="reset" value="Clear"> -->
                 </div>
             </div>
